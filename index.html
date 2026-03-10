@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ApexMyKO Valhalla Countdown</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(rgba(5, 10, 20, 0.72), rgba(5, 10, 20, 0.88)),
+        url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.18;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .glow.one {
+      background: #3b82f6;
+      top: -120px;
+      left: -120px;
+    }
+
+    .glow.two {
+      background: #06b6d4;
+      bottom: -160px;
+      right: -120px;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      text-align: center;
+      padding: 48px 28px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10, 18, 30, 0.55);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #93c5fd;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 7vw, 84px);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    }
+
+    .highlight {
+      display: block;
+      background: linear-gradient(180deg, #ffffff 0%, #93c5fd 60%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: clamp(14px, 2vw, 20px);
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 34px;
+      letter-spacing: 0.5px;
+    }
+
+    .date-box {
+      display: inline-block;
+      margin-bottom: 38px;
+      padding: 14px 24px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 700;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .time-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 28px 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .time {
+      font-size: clamp(34px, 5vw, 72px);
+      font-weight: 900;
+      line-height: 1;
+      color: #ffffff;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.35);
+    }
+
+    .label {
+      margin-top: 12px;
+      font-size: clamp(12px, 1.5vw, 16px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #93c5fd;
+      font-weight: 700;
+    }
+
+    .footer-text {
+      margin-top: 34px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .footer-text strong {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 36px 18px;
+        border-radius: 22px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .countdown {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .time-box {
+        padding: 22px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <div class="container">
+    <div class="badge">ApexMyKO Official Countdown</div>
+
+    <h1>
+      VALHALLA
+      <span class="highlight">OPENING</span>
+    </h1>
+
+    <p class="subtitle">
+      Orijinal MYKO deneyimi geri dönüyor. Büyük açılışa kalan süre:
+    </p>
+
+    <div class="date-box">
+      03 Nisan 2026 • 22:00 (Türkiye Saati)
+    </div>
+
+    <div class="countdown">
+      <div class="time-box">
+        <div class="time" id="days">00</div>
+        <div class="label">Gün</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="hours">00</div>
+        <div class="label">Saat</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="minutes">00</div>
+        <div class="label">Dakika</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="seconds">00</div>
+        <div class="label">Saniye</div>
+      </div>
+    </div>
+
+    <div class="footer-text" id="statusText">
+      Hazır ol. <strong>Valhalla</strong> yaklaşıyor.
+    </div>
+  </div>
+
+  <script>
+    // Türkiye saati için tarih:
+    // Aylar JS'de 0'dan başlar. 3 Nisan = ay 3 değil, 2
+    const targetDate = new Date("2026-04-03T22:00:00+03:00").getTime();
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const statusText = document.getElementById("statusText");
+
+    function format(num) {
+      return num < 10 ? "0" + num : num;
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        statusText.innerHTML = "<strong>VALHALLA AÇILDI!</strong> Hemen savaşa katıl.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = format(days);
+      hoursEl.textContent = format(hours);
+      minutesEl.textContent = format(minutes);
+      secondsEl.textContent = format(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
