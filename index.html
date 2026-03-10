@@ -3,226 +3,372 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ApexMyKO Valhalla Countdown</title>
+  <title>ApexMyKO Valhalla | Countdown</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-dark: #07111f;
+      --bg-card: rgba(10, 18, 32, 0.72);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f4f8ff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --blue: #6ec1ff;
+      --cyan: #67e8f9;
+      --gold: #f6d365;
+      --gold-2: #fda085;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     }
 
     body {
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
+      color: var(--text);
       background:
-        linear-gradient(rgba(5, 10, 20, 0.72), rgba(5, 10, 20, 0.88)),
-        url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+        linear-gradient(rgba(4, 10, 20, 0.76), rgba(3, 8, 18, 0.92)),
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(103, 232, 249, 0.12), transparent 30%),
+        url("https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+      position: relative;
+    }
+
+    .topbar {
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .top-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(18, 31, 53, 0.72);
+      border: 1px solid rgba(110, 193, 255, 0.22);
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 13px;
+      text-transform: uppercase;
+      box-shadow: 0 0 24px rgba(110, 193, 255, 0.12);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(12, 20, 36, 0.75), rgba(8, 15, 27, 0.82));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 48px 28px 36px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      position: relative;
       overflow: hidden;
     }
 
-    .glow {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.18;
-      z-index: 0;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px auto auto -120px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(103, 232, 249, 0.18), transparent 65%);
       pointer-events: none;
     }
 
-    .glow.one {
-      background: #3b82f6;
-      top: -120px;
-      left: -120px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -100px -100px auto;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 65%);
+      pointer-events: none;
     }
 
-    .glow.two {
-      background: #06b6d4;
-      bottom: -160px;
-      right: -120px;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 1100px;
-      text-align: center;
-      padding: 48px 28px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(10, 18, 30, 0.55);
-      backdrop-filter: blur(10px);
-      border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+    .title-small {
+      color: var(--blue);
+      font-size: 15px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.35);
-      color: #93c5fd;
-      margin-bottom: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
     }
 
-    h1 {
-      font-size: clamp(36px, 7vw, 84px);
+    .title {
+      font-size: clamp(44px, 8vw, 96px);
       line-height: 0.95;
       font-weight: 900;
       letter-spacing: 2px;
       text-transform: uppercase;
-      margin-bottom: 14px;
-      text-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      text-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
     }
 
-    .highlight {
+    .title .accent {
       display: block;
-      background: linear-gradient(180deg, #ffffff 0%, #93c5fd 60%, #60a5fa 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #9bd8ff 55%, #67e8f9 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      font-size: clamp(14px, 2vw, 20px);
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 34px;
-      letter-spacing: 0.5px;
+      max-width: 780px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(15px, 2vw, 19px);
+      line-height: 1.6;
     }
 
-    .date-box {
+    .date-pill {
       display: inline-block;
-      margin-bottom: 38px;
-      padding: 14px 24px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      margin-top: 28px;
+      padding: 16px 26px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
       font-size: clamp(16px, 2vw, 24px);
-      font-weight: 700;
+      font-weight: 800;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
     .countdown {
       display: grid;
-      grid-template-columns: repeat(4, minmax(120px, 1fr));
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
       gap: 18px;
-      margin-top: 10px;
+      margin-top: 34px;
     }
 
-    .time-box {
+    .count-card {
+      border-radius: 24px;
+      padding: 26px 14px;
       background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
       border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 22px;
-      padding: 28px 14px;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
-    .time {
-      font-size: clamp(34px, 5vw, 72px);
+    .count-value {
+      font-size: clamp(38px, 5vw, 78px);
       font-weight: 900;
       line-height: 1;
-      color: #ffffff;
-      text-shadow: 0 5px 20px rgba(0,0,0,0.35);
+      text-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
     }
 
-    .label {
+    .count-label {
       margin-top: 12px;
-      font-size: clamp(12px, 1.5vw, 16px);
+      font-size: 14px;
+      color: var(--blue);
       letter-spacing: 2px;
+      font-weight: 800;
       text-transform: uppercase;
-      color: #93c5fd;
-      font-weight: 700;
     }
 
-    .footer-text {
-      margin-top: 34px;
+    .status {
+      margin-top: 24px;
+      color: #dfefff;
+      font-size: 16px;
+    }
+
+    .info-grid {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .info-card {
+      border-radius: 20px;
+      padding: 20px;
+      text-align: left;
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.11);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .info-title {
+      font-size: 13px;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .info-value {
+      font-size: clamp(20px, 2vw, 30px);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .gold {
+      background: linear-gradient(180deg, #fff1b8 0%, #f6d365 50%, #fda085 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 15px 22px;
+      border-radius: 16px;
       font-size: 15px;
-      color: rgba(255,255,255,0.72);
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
     }
 
-    .footer-text strong {
-      color: #fff;
+    .btn-primary {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #04101d;
+      box-shadow: 0 12px 28px rgba(79, 172, 254, 0.28);
     }
 
-    @media (max-width: 768px) {
-      .container {
-        padding: 36px 18px;
-        border-radius: 22px;
-      }
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.15);
+    }
 
-      .countdown {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.62);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .countdown,
+      .info-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 420px) {
-      .countdown {
+    @media (max-width: 640px) {
+      .hero {
+        padding: 36px 18px 26px;
+        border-radius: 24px;
+      }
+
+      .countdown,
+      .info-grid {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
 
-      .time-box {
-        padding: 22px 10px;
+      .count-card,
+      .info-card {
+        border-radius: 18px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .count-label,
+      .info-title {
+        letter-spacing: 1px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="glow one"></div>
-  <div class="glow two"></div>
-
-  <div class="container">
-    <div class="badge">ApexMyKO Official Countdown</div>
-
-    <h1>
-      VALHALLA
-      <span class="highlight">OPENING</span>
-    </h1>
-
-    <p class="subtitle">
-      Orijinal MYKO deneyimi geri dönüyor. Büyük açılışa kalan süre:
-    </p>
-
-    <div class="date-box">
-      03 Nisan 2026 • 22:00 (Türkiye Saati)
+  <div class="page">
+    <div class="topbar">
+      <div class="top-badge">ApexMyKO • Official Opening Countdown</div>
     </div>
 
-    <div class="countdown">
-      <div class="time-box">
-        <div class="time" id="days">00</div>
-        <div class="label">Gün</div>
-      </div>
-      <div class="time-box">
-        <div class="time" id="hours">00</div>
-        <div class="label">Saat</div>
-      </div>
-      <div class="time-box">
-        <div class="time" id="minutes">00</div>
-        <div class="label">Dakika</div>
-      </div>
-      <div class="time-box">
-        <div class="time" id="seconds">00</div>
-        <div class="label">Saniye</div>
-      </div>
-    </div>
+    <section class="hero">
+      <div class="title-small">Valhalla is Coming</div>
 
-    <div class="footer-text" id="statusText">
-      Hazır ol. <strong>Valhalla</strong> yaklaşıyor.
-    </div>
+      <h1 class="title">
+        Valhalla
+        <span class="accent">Opening</span>
+      </h1>
+
+      <p class="subtitle">
+        Orijinal MYKO deneyimi geri dönüyor. Büyük açılışa kalan süreyi takip et,
+        ekibini hazırla ve savaş için yerini al.
+      </p>
+
+      <div class="date-pill">03 Nisan 2026 • 22:00 (Türkiye Saati)</div>
+
+      <div class="countdown">
+        <div class="count-card">
+          <div class="count-value" id="days">00</div>
+          <div class="count-label">Gün</div>
+        </div>
+        <div class="count-card">
+          <div class="count-value" id="hours">00</div>
+          <div class="count-label">Saat</div>
+        </div>
+        <div class="count-card">
+          <div class="count-value" id="minutes">00</div>
+          <div class="count-label">Dakika</div>
+        </div>
+        <div class="count-card">
+          <div class="count-value" id="seconds">00</div>
+          <div class="count-label">Saniye</div>
+        </div>
+      </div>
+
+      <div class="status" id="statusText">Hazır ol. Valhalla yaklaşıyor.</div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-title">Ödül Havuzu</div>
+          <div class="info-value gold">2.000.000 TL</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Client</div>
+          <div class="info-value">64-Bit Yeni Nesil</div>
+        </div>
+        <div class="info-card">
+          <div class="info-title">Deneyim</div>
+          <div class="info-value">Orijinal MYKO Ruhuyla</div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://apexmyko.net" target="_blank">Website</a>
+        <a class="btn btn-secondary" href="https://discord.gg/apexmyko" target="_blank">Discord</a>
+        <a class="btn btn-secondary" href="https://kick.com/apex-myko" target="_blank">Canlı Yayın</a>
+      </div>
+
+      <div class="footer-note">
+        Açılış anında bu sayaç otomatik olarak sıfırlanır.
+      </div>
+    </section>
   </div>
 
   <script>
-    // Türkiye saati için tarih:
-    // Aylar JS'de 0'dan başlar. 3 Nisan = ay 3 değil, 2
     const targetDate = new Date("2026-04-03T22:00:00+03:00").getTime();
 
     const daysEl = document.getElementById("days");
@@ -231,8 +377,8 @@
     const secondsEl = document.getElementById("seconds");
     const statusText = document.getElementById("statusText");
 
-    function format(num) {
-      return num < 10 ? "0" + num : num;
+    function pad(value) {
+      return value < 10 ? "0" + value : String(value);
     }
 
     function updateCountdown() {
@@ -244,7 +390,7 @@
         hoursEl.textContent = "00";
         minutesEl.textContent = "00";
         secondsEl.textContent = "00";
-        statusText.innerHTML = "<strong>VALHALLA AÇILDI!</strong> Hemen savaşa katıl.";
+        statusText.innerHTML = "<strong>VALHALLA AÇILDI!</strong> Şimdi savaşa katıl.";
         return;
       }
 
@@ -253,10 +399,10 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      daysEl.textContent = format(days);
-      hoursEl.textContent = format(hours);
-      minutesEl.textContent = format(minutes);
-      secondsEl.textContent = format(seconds);
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
     }
 
     updateCountdown();
