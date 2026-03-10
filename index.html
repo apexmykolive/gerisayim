@@ -1,404 +1,268 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ApexMyKO Valhalla Opening</title>
 
-  <style>
-    *{
-      box-sizing:border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      color:#fff;
-      text-align:center;
-      background:
-        radial-gradient(circle at top center, rgba(38,119,255,0.12), transparent 30%),
-        linear-gradient(180deg, #03101f 0%, #04101d 45%, #050b16 100%);
-      min-height:100vh;
-    }
+<title>ApexMyKO Valhalla Opening</title>
 
-    .container{
-      max-width:1240px;
-      margin:auto;
-      padding:42px 20px 80px;
-    }
+<style>
 
-    .logo-wrap{
-      margin-bottom:24px;
-    }
+body{
+margin:0;
+font-family:Arial;
+color:white;
+text-align:center;
+background:#020913 url("bg.jpg") center/cover fixed;
+}
 
-    .logo{
-      width:260px;
-      max-width:85%;
-      display:block;
-      margin:0 auto;
-      filter:
-        drop-shadow(0 0 18px rgba(0,190,255,0.14))
-        drop-shadow(0 10px 25px rgba(0,0,0,0.35));
-    }
+.container{
+max-width:1200px;
+margin:auto;
+padding:30px 20px;
+}
 
-    .hero{
-      max-width:980px;
-      margin:0 auto 70px;
-      padding:28px 24px 36px;
-      border:1px solid rgba(255,255,255,0.07);
-      background:linear-gradient(180deg, rgba(11,25,44,0.62), rgba(7,17,31,0.72));
-      border-radius:28px;
-      box-shadow:
-        0 20px 60px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-      backdrop-filter:blur(8px);
-    }
+.logo{
+width:200px;
+margin-bottom:10px;
+}
 
-    .eyebrow{
-      display:inline-block;
-      padding:8px 14px;
-      margin-bottom:16px;
-      border-radius:999px;
-      background:rgba(53,132,255,0.12);
-      border:1px solid rgba(83,156,255,0.22);
-      color:#8ec5ff;
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-    }
+.badge{
+display:inline-block;
+padding:8px 18px;
+border-radius:20px;
+background:#0f2a4d;
+color:#7cc3ff;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:10px;
+}
 
-    .title{
-      font-size:clamp(42px, 7vw, 92px);
-      line-height:0.95;
-      font-weight:900;
-      margin:0 0 14px;
-      letter-spacing:1px;
-      text-shadow:0 10px 35px rgba(0,0,0,0.35);
-    }
+.title{
+font-size:56px;
+font-weight:900;
+margin:10px 0;
+}
 
-    .subtitle{
-      color:#9ec9ff;
-      margin-bottom:28px;
-      font-size:clamp(15px, 2vw, 20px);
-    }
+.subtitle{
+color:#9ec9ff;
+margin-bottom:15px;
+}
 
-    .quick-links{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin:0 0 28px;
-    }
+.infoBox{
+display:inline-block;
+padding:10px 18px;
+border-radius:10px;
+background:#0d1f37;
+margin-bottom:20px;
+font-weight:bold;
+color:#8cc8ff;
+}
 
-    .quick-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:140px;
-      padding:13px 20px;
-      border-radius:14px;
-      text-decoration:none;
-      color:#fff;
-      background:linear-gradient(180deg, rgba(23,42,70,0.95), rgba(13,27,47,0.95));
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 10px 25px rgba(0,0,0,0.25);
-      font-weight:700;
-      transition:all .18s ease;
-    }
+.prizeBtn{
+display:inline-block;
+padding:14px 28px;
+margin:10px;
+background:linear-gradient(45deg,#ff7a00,#ffb400);
+border-radius:10px;
+text-decoration:none;
+color:black;
+font-weight:900;
+font-size:16px;
+box-shadow:0 0 15px rgba(255,150,0,0.5);
+transition:0.2s;
+}
 
-    .quick-link:hover{
-      transform:translateY(-2px);
-      background:linear-gradient(180deg, rgba(33,63,103,0.95), rgba(16,36,64,0.95));
-      border-color:rgba(110,193,255,0.35);
-      box-shadow:0 14px 28px rgba(0,0,0,0.32);
-    }
+.prizeBtn:hover{
+transform:scale(1.05);
+}
 
-    .countdown{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
+.menuBtn{
+display:inline-block;
+padding:10px 20px;
+margin:5px;
+background:#0f1a2b;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
 
-    .box{
-      min-width:150px;
-      padding:26px 20px;
-      border-radius:20px;
-      background:linear-gradient(180deg, rgba(17,34,60,0.98), rgba(11,25,44,0.98));
-      border:1px solid rgba(255,255,255,0.07);
-      box-shadow:
-        0 18px 38px rgba(0,0,0,0.28),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-    }
+.countdown{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+flex-wrap:wrap;
+}
 
-    .number{
-      font-size:58px;
-      font-weight:900;
-      line-height:1;
-      text-shadow:0 8px 24px rgba(0,0,0,0.28);
-    }
+.box{
+background:#0f1a2b;
+padding:18px;
+border-radius:12px;
+min-width:100px;
+}
 
-    .label{
-      margin-top:8px;
-      font-size:13px;
-      color:#8ec5ff;
-      letter-spacing:2px;
-    }
+.number{
+font-size:38px;
+font-weight:900;
+}
 
-    .section{
-      margin-top:12px;
-    }
+.label{
+font-size:12px;
+color:#8ec5ff;
+}
 
-    .section-header{
-      margin-bottom:24px;
-    }
+.section{
+margin-top:40px;
+}
 
-    .section-title{
-      font-size:clamp(28px, 4vw, 46px);
-      font-weight:900;
-      margin:0 0 10px;
-    }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+margin-top:20px;
+}
 
-    .section-desc{
-      margin:0;
-      color:rgba(255,255,255,0.72);
-      font-size:16px;
-    }
+.card{
+border-radius:14px;
+overflow:hidden;
+background:#081421;
+transition:0.25s;
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:24px;
-      margin-top:30px;
-    }
+.card:hover{
+transform:translateY(-6px) scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
 
-    .event-card{
-      position:relative;
-      display:block;
-      overflow:hidden;
-      border-radius:22px;
-      text-decoration:none;
-      background:#0b1423;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:
-        0 16px 36px rgba(0,0,0,0.32),
-        inset 0 1px 0 rgba(255,255,255,0.04);
-      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
+.card img{
+width:100%;
+display:block;
+}
 
-    .event-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(110,193,255,0.28);
-      box-shadow:
-        0 24px 46px rgba(0,0,0,0.4),
-        0 0 0 1px rgba(110,193,255,0.08);
-    }
+.cardTitle{
+padding:12px;
+font-weight:bold;
+}
 
-    .event-card img{
-      width:100%;
-      display:block;
-      transition:transform .35s ease, filter .35s ease;
-    }
+.footer{
+margin-top:40px;
+opacity:0.6;
+font-size:13px;
+}
 
-    .event-card:hover img{
-      transform:scale(1.035);
-      filter:brightness(1.04);
-    }
-
-    .event-overlay{
-      position:absolute;
-      inset:auto 0 0 0;
-      padding:18px 16px 16px;
-      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(2,8,18,0.9) 68%, rgba(2,8,18,0.96) 100%);
-      text-align:left;
-    }
-
-    .event-badge{
-      position:absolute;
-      top:14px;
-      left:14px;
-      z-index:2;
-      padding:7px 11px;
-      border-radius:999px;
-      background:rgba(255,132,0,0.9);
-      color:#fff;
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      box-shadow:0 8px 18px rgba(0,0,0,0.25);
-    }
-
-    .event-title{
-      margin:0 0 6px;
-      color:#fff;
-      font-size:22px;
-      font-weight:900;
-    }
-
-    .event-text{
-      margin:0;
-      color:rgba(255,255,255,0.78);
-      font-size:14px;
-      line-height:1.45;
-    }
-
-    .footer{
-      margin-top:56px;
-      color:rgba(255,255,255,0.55);
-      font-size:14px;
-      letter-spacing:.3px;
-    }
-
-    @media (max-width: 1024px){
-      .cards{
-        grid-template-columns:1fr 1fr;
-      }
-    }
-
-    @media (max-width: 680px){
-      .hero{
-        padding:24px 14px 26px;
-        border-radius:22px;
-      }
-
-      .cards{
-        grid-template-columns:1fr;
-      }
-
-      .box{
-        min-width:130px;
-        padding:22px 18px;
-      }
-
-      .number{
-        font-size:46px;
-      }
-
-      .quick-link{
-        min-width:unset;
-        width:100%;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="logo-wrap">
-      <img src="apex_logo.png" class="logo" alt="ApexMyKO Logo">
-    </div>
+<img src="apex_logo.png" class="logo">
 
-    <section class="hero">
-      <div class="eyebrow">Official Opening Countdown</div>
+<div class="badge">OFFICIAL OPENING COUNTDOWN</div>
 
-      <h1 class="title">VALHALLA OPENING</h1>
+<div class="title">VALHALLA OPENING</div>
 
-      <div class="subtitle">03 Nisan 2026 • 22:00 Türkiye</div>
+<div class="subtitle">03 Nisan 2026 • 22:00 Türkiye</div>
 
-      <div class="quick-links">
-        <a class="quick-link" href="https://apexmyko.net" target="_blank">Website</a>
-        <a class="quick-link" href="https://forum.apexmyko.net" target="_blank">Forum</a>
-        <a class="quick-link" href="https://discord.gg/apexmyko" target="_blank">Discord</a>
-      </div>
+<div class="infoBox">
+64 Bit Client • v1098 Orj MYKO
+</div>
 
-      <div class="countdown">
-        <div class="box">
-          <div class="number" id="days">0</div>
-          <div class="label">GÜN</div>
-        </div>
+<br>
 
-        <div class="box">
-          <div class="number" id="hours">0</div>
-          <div class="label">SAAT</div>
-        </div>
+<a class="prizeBtn" href="FORUM_LINK" target="_blank">
+1.500.000 TL ÖDÜL HAVUZU
+</a>
 
-        <div class="box">
-          <div class="number" id="minutes">0</div>
-          <div class="label">DAKİKA</div>
-        </div>
+<br>
 
-        <div class="box">
-          <div class="number" id="seconds">0</div>
-          <div class="label">SANİYE</div>
-        </div>
-      </div>
-    </section>
+<a class="menuBtn" href="https://apexmyko.net" target="_blank">Website</a>
+<a class="menuBtn" href="FORUM_LINK" target="_blank">Forum</a>
+<a class="menuBtn" href="https://discord.gg/apexmyko" target="_blank">Discord</a>
 
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Aktif Etkinlikler</h2>
-        <p class="section-desc">Güncel kampanyalara ve çekilişlere tek tıkla ulaş.</p>
-      </div>
+<div class="countdown">
 
-      <div class="cards">
-        <a class="event-card" href="https://discord.gg/apexmyko" target="_blank">
-          <div class="event-badge">Aktif</div>
-          <img src="cekilis_discord.jpg" alt="Discord Davet Et Kazan">
-          <div class="event-overlay">
-            <h3 class="event-title">Discord Davet Et Kazan</h3>
-            <p class="event-text">Arkadaşlarını Discord’a davet et, ödül kazanma şansını yakala.</p>
-          </div>
-        </a>
+<div class="box">
+<div class="number" id="days">0</div>
+<div class="label">GÜN</div>
+</div>
 
-        <a class="event-card" href="https://www.instagram.com/apexmyko" target="_blank">
-          <div class="event-badge">Aktif</div>
-          <img src="cekilis_yorum.jpg" alt="Yorum Yap Kazan">
-          <div class="event-overlay">
-            <h3 class="event-title">Yorum Yap Kazan</h3>
-            <p class="event-text">Sosyal medya gönderilerine yorum yap, etkinliğe katıl ve ödül şansı yakala.</p>
-          </div>
-        </a>
+<div class="box">
+<div class="number" id="hours">0</div>
+<div class="label">SAAT</div>
+</div>
 
-        <a class="event-card" href="https://forum.apexmyko.net" target="_blank">
-          <div class="event-badge">Aktif</div>
-          <img src="cekilis_forum.jpg" alt="Forum Çekilişi">
-          <div class="event-overlay">
-            <h3 class="event-title">Forum Çekilişi</h3>
-            <p class="event-text">Forumdaki çekilişe hemen katıl, starter paket ödüllerini kaçırma.</p>
-          </div>
-        </a>
-      </div>
-    </section>
+<div class="box">
+<div class="number" id="minutes">0</div>
+<div class="label">DAKİKA</div>
+</div>
 
-    <div class="footer">
-      64 Bit Client • v1098 Orj MYKO
-    </div>
+<div class="box">
+<div class="number" id="seconds">0</div>
+<div class="label">SANİYE</div>
+</div>
 
-  </div>
+</div>
 
-  <script>
-    const target = new Date("2026-04-03T22:00:00+03:00").getTime();
+<div class="section">
 
-    function update(){
-      const now = new Date().getTime();
-      const diff = target - now;
+<h2>Aktif Etkinlikler</h2>
 
-      if (diff <= 0) {
-        document.getElementById("days").innerText = 0;
-        document.getElementById("hours").innerText = 0;
-        document.getElementById("minutes").innerText = 0;
-        document.getElementById("seconds").innerText = 0;
-        return;
-      }
+<div class="cards">
 
-      const d = Math.floor(diff / (1000*60*60*24));
-      const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-      const m = Math.floor((diff%(1000*60*60))/(1000*60));
-      const s = Math.floor((diff%(1000*60))/1000);
+<a class="card" href="FORUM_DISCORD_EVENT" target="_blank">
+<img src="cekilis_discord.jpg">
+<div class="cardTitle">Discord Davet Et Kazan</div>
+</a>
 
-      document.getElementById("days").innerText = d;
-      document.getElementById("hours").innerText = h;
-      document.getElementById("minutes").innerText = m;
-      document.getElementById("seconds").innerText = s;
-    }
+<a class="card" href="FORUM_YORUM_EVENT" target="_blank">
+<img src="cekilis_yorum.jpg">
+<div class="cardTitle">Yorum Yap Kazan</div>
+</a>
 
-    update();
-    setInterval(update,1000);
-  </script>
+<a class="card" href="FORUM_FORUM_EVENT" target="_blank">
+<img src="cekilis_forum.jpg">
+<div class="cardTitle">Forum Çekilişi</div>
+</a>
+
+</div>
+
+</div>
+
+<div class="footer">
+ApexMyKO • Valhalla 2026
+</div>
+
+</div>
+
+<script>
+
+const target = new Date("2026-04-03T22:00:00+03:00").getTime();
+
+function update(){
+
+const now = new Date().getTime();
+const diff = target - now;
+
+const d = Math.floor(diff / (1000*60*60*24));
+const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m = Math.floor((diff%(1000*60*60))/(1000*60));
+const s = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("days").innerText=d;
+document.getElementById("hours").innerText=h;
+document.getElementById("minutes").innerText=m;
+document.getElementById("seconds").innerText=s;
+
+}
+
+setInterval(update,1000);
+
+</script>
 
 </body>
 </html>
