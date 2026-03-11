@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
 
 <meta charset="UTF-8">
@@ -14,12 +15,23 @@ margin:0;
 font-family:Arial;
 color:white;
 text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
-url("bg.jpg");
-background-size:cover;
-background-attachment:fixed;
+overflow-x:hidden;
 }
+
+/* VIDEO BACKGROUND */
+
+video.bgvideo{
+position:fixed;
+right:0;
+bottom:0;
+min-width:100%;
+min-height:100%;
+z-index:-1;
+object-fit:cover;
+filter:brightness(0.35);
+}
+
+/* PAGE */
 
 .container{
 max-width:1200px;
@@ -36,13 +48,13 @@ filter:drop-shadow(0 0 10px #00a2ff);
 /* HERO PANEL */
 
 .hero{
-background:rgba(10,20,35,0.75);
+background:rgba(5,15,30,0.75);
 border-radius:18px;
 padding:40px 30px;
+backdrop-filter:blur(10px);
 box-shadow:
 0 0 40px rgba(0,150,255,0.15),
 inset 0 0 30px rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
 }
 
 .badge{
@@ -67,7 +79,7 @@ color:#9ec9ff;
 margin-bottom:15px;
 }
 
-/* INFO BADGE */
+/* INFO */
 
 .infoBox{
 display:inline-block;
@@ -79,7 +91,7 @@ font-weight:bold;
 color:#9ed3ff;
 }
 
-/* PRIZE BUTTON */
+/* PRIZE */
 
 .prizeBtn{
 display:inline-block;
@@ -96,15 +108,10 @@ transition:0.25s;
 }
 
 .prizeBtn:hover{
-transform:translateY(-3px) scale(1.05);
-box-shadow:0 0 30px rgba(255,180,0,0.8);
+transform:scale(1.06);
 }
 
 /* MENU */
-
-.menu{
-margin-top:10px;
-}
 
 .menu a{
 display:inline-block;
@@ -120,8 +127,8 @@ transition:0.2s;
 
 .menu a:hover{
 background:#143458;
-transform:translateY(-2px);
 box-shadow:0 0 10px #2fa4ff;
+transform:translateY(-2px);
 }
 
 /* COUNTDOWN */
@@ -139,7 +146,6 @@ background:#0f1a2b;
 padding:22px;
 border-radius:14px;
 min-width:110px;
-box-shadow:inset 0 0 10px rgba(0,0,0,0.5);
 }
 
 .number{
@@ -201,6 +207,12 @@ font-size:13px;
 </head>
 
 <body>
+
+<!-- VIDEO BACKGROUND -->
+
+<video autoplay muted loop playsinline class="bgvideo">
+<source src="bg.mp4" type="video/mp4">
+</video>
 
 <div class="container">
 
