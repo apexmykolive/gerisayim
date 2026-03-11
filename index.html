@@ -1,477 +1,382 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ApexMyKO Valhalla Opening</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{
-      box-sizing:border-box;
-    }
+<title>ApexMyKO Valhalla Opening</title>
 
-    :root{
-      --bg-dark: rgba(5, 14, 28, 0.72);
-      --panel: rgba(10, 22, 40, 0.78);
-      --panel-border: rgba(120, 180, 255, 0.14);
-      --blue: #8ec5ff;
-      --blue-strong: #2f8cff;
-      --white: #f4f7fb;
-      --gold-a: #ff9800;
-      --gold-b: #ffba08;
-      --shadow: 0 20px 50px rgba(0,0,0,.35);
-    }
+<style>
 
-    html, body{
-      margin:0;
-      padding:0;
-      font-family: Arial, Helvetica, sans-serif;
-      color:var(--white);
-      overflow-x:hidden;
-      background:#050b16;
-    }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-    body{
-      min-height:100vh;
-      position:relative;
-    }
+body{
+font-family:Arial;
+background:#050b16;
+color:white;
+overflow-x:hidden;
+}
 
-    .bg-video{
+/* VIDEO BACKGROUND */
+
+.video-bg{
 position:fixed;
 top:0;
 left:0;
+width:100%;
+height:100%;
+z-index:0;
+overflow:hidden;
+}
+
+.video-bg video{
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:-2;
 filter:brightness(0.35);
 }
 
-    .bg-overlay{
+.overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(5,11,22,0.6);
-z-index:-1;
+background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.7));
+z-index:1;
 }
 
-    .container{
-      max-width:1180px;
-      margin:0 auto;
-      padding:14px 18px 28px;
-    }
+/* CONTENT */
 
-    .logo-wrap{
-      text-align:center;
-      margin-bottom:8px;
-    }
+.container{
+position:relative;
+z-index:2;
+max-width:1100px;
+margin:auto;
+padding:20px;
+text-align:center;
+}
 
-    .logo{
-      width:170px;
-      max-width:65vw;
-      display:inline-block;
-      filter:
-        drop-shadow(0 0 12px rgba(0, 180, 255, 0.18))
-        drop-shadow(0 10px 20px rgba(0,0,0,0.35));
-    }
+.logo{
+width:160px;
+margin-bottom:10px;
+}
 
-    .hero{
-      max-width:720px;
-      margin:0 auto;
-      padding:14px 18px 16px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(13,25,43,0.70), rgba(8,18,34,0.78));
-      border:1px solid var(--panel-border);
-      backdrop-filter: blur(10px);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.02),
-        0 10px 35px rgba(0,0,0,0.35),
-        0 0 24px rgba(47,140,255,0.10);
-    }
+/* HERO */
 
-    .badge{
-      display:block;
-      width:max-content;
-      margin:0 auto 10px;
-      padding:8px 18px;
-      border-radius:999px;
-      background:rgba(13, 53, 107, 0.90);
-      color:#b8dcff;
-      border:1px solid rgba(138, 198, 255, 0.15);
-      letter-spacing:2px;
-      font-size:12px;
-      font-weight:700;
-      text-transform:uppercase;
-      box-shadow:0 0 18px rgba(31,124,255,0.10);
-    }
+.hero{
+background:rgba(10,20,35,0.75);
+padding:20px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+margin-bottom:25px;
+}
 
-    .title{
-      margin:0;
-      text-align:center;
-      font-size:clamp(32px, 5vw, 60px);
-      line-height:.98;
-      font-weight:900;
-      letter-spacing:.5px;
-      text-shadow:0 8px 25px rgba(0,0,0,.28);
-    }
+.badge{
+display:inline-block;
+background:#0d356b;
+padding:6px 16px;
+border-radius:20px;
+font-size:12px;
+letter-spacing:1px;
+margin-bottom:10px;
+}
 
-    .subtitle{
-      margin:10px 0 0;
-      text-align:center;
-      color:var(--blue);
-      font-size:clamp(15px, 1.8vw, 18px);
-    }
+.title{
+font-size:50px;
+font-weight:900;
+margin-bottom:10px;
+}
 
-    .hero-meta{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
+.subtitle{
+color:#9ed0ff;
+margin-bottom:10px;
+}
 
-    .meta-pill{
-      padding:10px 14px;
-      border-radius:12px;
-      background:rgba(12, 42, 81, 0.92);
-      color:#a9d5ff;
-      font-weight:700;
-      border:1px solid rgba(120,180,255,0.10);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
-    }
+.meta{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:10px;
+}
 
-    .prize-row{
-      margin-top:14px;
-      display:flex;
-      justify-content:center;
-    }
+.meta span{
+background:#163a66;
+padding:6px 12px;
+border-radius:10px;
+font-size:14px;
+}
 
-    .prize-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:300px;
-      max-width:100%;
-      padding:15px 28px;
-      border-radius:16px;
-      background:linear-gradient(135deg, var(--gold-a), var(--gold-b));
-      color:#0f1012;
-      text-decoration:none;
-      font-weight:900;
-      font-size:clamp(18px, 2vw, 20px);
-      box-shadow:
-        0 0 26px rgba(255,170,0,0.35),
-        0 10px 24px rgba(0,0,0,0.25);
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    }
+/* PRIZE */
 
-    .prize-btn:hover{
-      transform:translateY(-2px) scale(1.02);
-      filter:brightness(1.03);
-      box-shadow:
-        0 0 34px rgba(255,185,0,0.48),
-        0 14px 28px rgba(0,0,0,0.30);
-    }
+.prize{
+display:inline-block;
+background:linear-gradient(45deg,#ff9900,#ffc400);
+color:black;
+padding:14px 26px;
+font-weight:900;
+border-radius:12px;
+margin-bottom:12px;
+text-decoration:none;
+box-shadow:0 0 20px rgba(255,170,0,0.5);
+transition:0.2s;
+}
 
-    .nav-row{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
+.prize:hover{
+transform:scale(1.05);
+}
 
-    .nav-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-width:110px;
-      padding:12px 18px;
-      border-radius:12px;
-      background:linear-gradient(180deg, rgba(17,33,58,0.95), rgba(11,23,42,0.95));
-      color:#fff;
-      text-decoration:none;
-      font-weight:800;
-      border:1px solid rgba(124, 175, 255, 0.08);
-      box-shadow:0 8px 20px rgba(0,0,0,.18);
-      transition:all .18s ease;
-    }
+/* NAV BUTTONS */
 
-    .nav-btn:hover{
-      transform:translateY(-2px);
-      border-color:rgba(120, 180, 255, 0.24);
-      box-shadow:
-        0 0 18px rgba(47,140,255,.24),
-        0 12px 24px rgba(0,0,0,.22);
-      background:linear-gradient(180deg, rgba(23,49,83,0.95), rgba(12,28,50,0.95));
-    }
+.nav{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:15px;
+}
 
-    .countdown{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(110px, 1fr));
-      gap:14px;
-      margin:18px auto 0;
-      max-width:640px;
-    }
+.nav a{
+background:#142a48;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:0.2s;
+}
 
-    .count-box{
-      padding:14px 10px 16px;
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(10, 24, 44, 0.96), rgba(7, 18, 34, 0.96));
-      border:1px solid rgba(120,180,255,0.08);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.03),
-        0 12px 20px rgba(0,0,0,.18);
-    }
+.nav a:hover{
+background:#1f4d87;
+transform:translateY(-2px);
+}
 
-    .count-number{
-      font-size:clamp(32px, 3.2vw, 54px);
-      font-weight:900;
-      line-height:1;
-      text-shadow:0 6px 16px rgba(0,0,0,.20);
-    }
+/* COUNTDOWN */
 
-    .count-label{
-      margin-top:8px;
-      font-size:13px;
-      letter-spacing:2px;
-      color:var(--blue);
-      font-weight:700;
-    }
+.countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+}
 
-    .events{
-      margin-top:16px;
-    }
+.box{
+background:#0e213c;
+padding:15px;
+border-radius:12px;
+}
 
-    .events-title{
-      margin:0 0 14px;
-      text-align:center;
-      font-size:clamp(28px, 4.4vw, 52px);
-      font-weight:900;
-      text-shadow:0 8px 20px rgba(0,0,0,.18);
-    }
+.number{
+font-size:36px;
+font-weight:900;
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:18px;
-    }
+.label{
+font-size:12px;
+color:#9ed0ff;
+letter-spacing:2px;
+}
 
-    .card{
-      display:block;
-      text-decoration:none;
-      color:#fff;
-      border-radius:20px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(12,22,40,0.95), rgba(8,16,31,0.96));
-      border:1px solid rgba(120,180,255,0.08);
-      box-shadow:
-        0 14px 32px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.02);
-      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
+/* EVENTS */
 
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(120,180,255,0.24);
-      box-shadow:
-        0 20px 40px rgba(0,0,0,.34),
-        0 0 24px rgba(47,140,255,.18);
-    }
+.events{
+margin-top:20px;
+}
 
-    .card img{
-      width:100%;
-      display:block;
-      aspect-ratio: 4 / 5.6;
-      object-fit:cover;
-    }
+.events h2{
+font-size:36px;
+margin-bottom:15px;
+}
 
-    .card-cta{
-      padding:14px 16px 16px;
-      text-align:center;
-      font-size:22px;
-      font-weight:900;
-      color:#ffffff;
-      letter-spacing:.3px;
-      text-shadow:0 0 10px rgba(255,255,255,0.10);
-      transition:text-shadow .18s ease, color .18s ease;
-    }
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
 
-    .card:hover .card-cta{
-      text-shadow:
-        0 0 14px rgba(164, 214, 255, 0.26),
-        0 0 24px rgba(47,140,255,0.18);
-      color:#f8fbff;
-    }
+.card{
+background:#0e213c;
+border-radius:16px;
+overflow:hidden;
+text-decoration:none;
+color:white;
+transition:0.2s;
+}
 
-    .footer-space{
-      height:8px;
-    }
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(0,150,255,0.4);
+}
 
-    @media (max-width: 980px){
-      .cards{
-        grid-template-columns:1fr 1fr;
-      }
+.card img{
+width:100%;
+display:block;
+}
 
-      .countdown{
-        max-width:560px;
-      }
-    }
+.card-text{
+padding:12px;
+font-size:20px;
+font-weight:bold;
+}
 
-    @media (max-width: 640px){
-      .container{
-        padding:12px 12px 22px;
-      }
+.card:hover .card-text{
+color:#9ed0ff;
+}
 
-      .logo{
-        width:145px;
-      }
+/* MOBILE */
 
-      .hero{
-        padding:16px 12px 18px;
-        border-radius:18px;
-      }
+@media(max-width:900px){
 
-      .countdown{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-        max-width:360px;
-      }
+.cards{
+grid-template-columns:1fr 1fr;
+}
 
-      .cards{
-        grid-template-columns:1fr;
-      }
+}
 
-      .card-cta{
-        font-size:20px;
-      }
+@media(max-width:600px){
 
-      .prize-btn{
-        min-width:unset;
-        width:100%;
-      }
+.cards{
+grid-template-columns:1fr;
+}
 
-      .nav-btn{
-        min-width:unset;
-        width:calc(33.333% - 8px);
-        padding:11px 8px;
-      }
-    }
-  </style>
+.countdown{
+grid-template-columns:1fr 1fr;
+}
+
+.title{
+font-size:38px;
+}
+
+}
+
+</style>
 </head>
+
+
 <body>
 
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="bg.mp4" type="video/mp4">
-  </video>
-  <div class="bg-overlay"></div>
+<div class="video-bg">
+<video autoplay muted loop playsinline>
+<source src="./bg.mp4" type="video/mp4">
+</video>
+</div>
 
-  <div class="container">
-    <div class="logo-wrap">
-      <img src="apex_logo.png" alt="ApexMyKO Logo" class="logo">
-    </div>
+<div class="overlay"></div>
 
-    <section class="hero">
-      <div class="badge">Official Opening Countdown</div>
+<div class="container">
 
-      <h1 class="title">VALHALLA OPENING</h1>
+<img src="apex_logo.png" class="logo">
 
-      <div class="subtitle">03 Nisan 2026 • 22:00 Türkiye</div>
+<div class="hero">
 
-      <div class="hero-meta">
-        <div class="meta-pill">64 Bit Client</div>
-        <div class="meta-pill">v1098</div>
-        <div class="meta-pill">Orj MYKO</div>
-      </div>
+<div class="badge">Official Opening Countdown</div>
 
-      <div class="prize-row">
-        <a class="prize-btn" href="FORUM_ODUL_LINKI" target="_blank">1.500.000 TL ÖDÜL HAVUZU</a>
-      </div>
+<div class="title">VALHALLA OPENING</div>
 
-      <div class="nav-row">
-        <a class="nav-btn" href="https://apexmyko.net" target="_blank">Website</a>
-        <a class="nav-btn" href="FORUM_ANA_LINK" target="_blank">Forum</a>
-        <a class="nav-btn" href="https://discord.gg/apexmyko" target="_blank">Discord</a>
-      </div>
+<div class="subtitle">
+03 Nisan 2026 • 22:00 Türkiye
+</div>
 
-      <div class="countdown">
-        <div class="count-box">
-          <div class="count-number" id="days">0</div>
-          <div class="count-label">GÜN</div>
-        </div>
+<div class="meta">
+<span>64 Bit Client</span>
+<span>v1098</span>
+<span>Orj MYKO</span>
+</div>
 
-        <div class="count-box">
-          <div class="count-number" id="hours">0</div>
-          <div class="count-label">SAAT</div>
-        </div>
+<a class="prize" href="FORUM_ODUL_LINK" target="_blank">
+1.500.000 TL ÖDÜL HAVUZU
+</a>
 
-        <div class="count-box">
-          <div class="count-number" id="minutes">0</div>
-          <div class="count-label">DAKİKA</div>
-        </div>
+<div class="nav">
+<a href="https://apexmyko.net">Website</a>
+<a href="FORUM_LINK">Forum</a>
+<a href="https://discord.gg/apexmyko">Discord</a>
+</div>
 
-        <div class="count-box">
-          <div class="count-number" id="seconds">0</div>
-          <div class="count-label">SANİYE</div>
-        </div>
-      </div>
-    </section>
+<div class="countdown">
 
-    <section class="events">
-      <h2 class="events-title">Aktif Etkinlikler</h2>
+<div class="box">
+<div id="days" class="number">0</div>
+<div class="label">GÜN</div>
+</div>
 
-      <div class="cards">
-        <a class="card" href="DISCORD_ETKINLIK_LINKI" target="_blank">
-          <img src="cekilis_discord.jpg" alt="Discord Etkinliği">
-          <div class="card-cta">Tıkla Git →</div>
-        </a>
+<div class="box">
+<div id="hours" class="number">0</div>
+<div class="label">SAAT</div>
+</div>
 
-        <a class="card" href="YORUM_ETKINLIK_LINKI" target="_blank">
-          <img src="cekilis_yorum.jpg" alt="Yorum Etkinliği">
-          <div class="card-cta">Tıkla Git →</div>
-        </a>
+<div class="box">
+<div id="minutes" class="number">0</div>
+<div class="label">DAKİKA</div>
+</div>
 
-        <a class="card" href="FORUM_ETKINLIK_LINKI" target="_blank">
-          <img src="cekilis_forum.jpg" alt="Forum Çekilişi">
-          <div class="card-cta">Tıkla Git →</div>
-        </a>
-      </div>
-    </section>
+<div class="box">
+<div id="seconds" class="number">0</div>
+<div class="label">SANİYE</div>
+</div>
 
-    <div class="footer-space"></div>
-  </div>
+</div>
 
-  <script>
-    const target = new Date("2026-04-03T22:00:00+03:00").getTime();
+</div>
 
-    function updateCountdown(){
-      const now = new Date().getTime();
-      const diff = target - now;
+<div class="events">
 
-      if (diff <= 0) {
-        document.getElementById("days").innerText = 0;
-        document.getElementById("hours").innerText = 0;
-        document.getElementById("minutes").innerText = 0;
-        document.getElementById("seconds").innerText = 0;
-        return;
-      }
+<h2>Aktif Etkinlikler</h2>
 
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((diff % (1000 * 60)) / 1000);
+<div class="cards">
 
-      document.getElementById("days").innerText = d;
-      document.getElementById("hours").innerText = h;
-      document.getElementById("minutes").innerText = m;
-      document.getElementById("seconds").innerText = s;
-    }
+<a class="card" href="DISCORD_EVENT">
+<img src="cekilis_discord.jpg">
+<div class="card-text">Tıkla Git →</div>
+</a>
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+<a class="card" href="YORUM_EVENT">
+<img src="cekilis_yorum.jpg">
+<div class="card-text">Tıkla Git →</div>
+</a>
+
+<a class="card" href="FORUM_EVENT">
+<img src="cekilis_forum.jpg">
+<div class="card-text">Tıkla Git →</div>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const target = new Date("2026-04-03T22:00:00+03:00").getTime();
+
+function update(){
+
+const now = new Date().getTime();
+const diff = target - now;
+
+const d = Math.floor(diff/(1000*60*60*24));
+const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m = Math.floor((diff%(1000*60*60))/(1000*60));
+const s = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("days").innerText=d;
+document.getElementById("hours").innerText=h;
+document.getElementById("minutes").innerText=m;
+document.getElementById("seconds").innerText=s;
+
+}
+
+setInterval(update,1000);
+
+</script>
 
 </body>
 </html>
