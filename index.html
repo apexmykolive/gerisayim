@@ -110,20 +110,26 @@
     }
 
     /* HERO */
-    .hero{
-      position:relative;
-      background:rgba(6, 26, 49, 0.56);
-      padding:18px 18px 20px;
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,0.05);
-      backdrop-filter:blur(10px);
-      box-shadow:
-        0 20px 40px rgba(0,0,0,.38),
-        0 0 80px rgba(255,140,0,.10),
-        0 0 140px rgba(255,140,0,.05);
-      margin-bottom:18px;
-      overflow:hidden;
-    }
+   .hero{
+  position:relative;
+  background:linear-gradient(
+    180deg,
+    rgba(12, 28, 48, 0.34) 0%,
+    rgba(8, 20, 36, 0.42) 100%
+  );
+  padding:18px 18px 20px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.10);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 80px rgba(255,140,0,.08),
+    0 0 140px rgba(255,140,0,.04);
+  margin-bottom:18px;
+  overflow:hidden;
+}
 
     .hero::before{
       content:"";
@@ -190,14 +196,23 @@ text-shadow:
       margin-bottom:14px;
     }
 
-    .meta span{
-      background:#163a66;
-      padding:7px 14px;
-      border-radius:12px;
-      font-size:14px;
-      font-weight:700;
-      box-shadow:0 0 12px rgba(47,140,255,.08);
-    }
+  .meta span{
+  background:linear-gradient(
+    180deg,
+    rgba(22, 58, 102, 0.34) 0%,
+    rgba(12, 32, 56, 0.42) 100%
+  );
+  padding:7px 14px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:700;
+  border:1px solid rgba(160,210,255,.10);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 12px rgba(47,140,255,.06);
+}
 
     /* CTA BUTTONS */
     .prize{
@@ -256,18 +271,25 @@ text-shadow:
     }
 
     .count-box{
-      background:#0e274a;
-      padding:16px 10px 14px;
-      border-radius:16px;
-      border:1px solid rgba(120,180,255,.06);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.03),
-        0 8px 18px rgba(0,0,0,.18);
-      transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        border-color .22s ease;
-    }
+  background:linear-gradient(
+    180deg,
+    rgba(18, 42, 72, 0.28) 0%,
+    rgba(10, 24, 44, 0.40) 100%
+  );
+  padding:16px 10px 14px;
+  border-radius:16px;
+  border:1px solid rgba(160,210,255,.10);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 8px 18px rgba(0,0,0,.14);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
 
     .count-number{
       font-size:36px;
@@ -321,16 +343,24 @@ text-shadow:
       gap:20px;
     }
 
-    .card{
-      background:rgba(14,33,60,.92);
-      border-radius:18px;
-      overflow:hidden;
-      text-decoration:none;
-      color:white;
-      transition:.22s ease;
-      border:1px solid rgba(120,180,255,.06);
-      box-shadow:0 12px 28px rgba(0,0,0,.24);
-    }
+  .card{
+  background:linear-gradient(
+    180deg,
+    rgba(16, 36, 64, 0.34) 0%,
+    rgba(10, 22, 40, 0.48) 100%
+  );
+  border-radius:18px;
+  overflow:hidden;
+  text-decoration:none;
+  color:white;
+  transition:.22s ease;
+  border:1px solid rgba(160,210,255,.10);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
 
     .card:hover{
       transform:translateY(-5px);
