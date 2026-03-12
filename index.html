@@ -1,37 +1,66 @@
-<div class="events">
-   <h2>Aktif Etkinlikler</h2>
 
-   <div class="cards">
-
-      <a class="card" href="https://discord.com/channels/971415973297008731/1454618360934563944" target="_blank">
-         <img src="cekilis_discord.jpg" alt="Discord Etkinliği">
-         <div class="card-text">Tıkla Git →</div>
-      </a>
-
-      <a class="card" href="https://www.apexmyko.net/index.php?forums/sosyal-medya-etkinlikleri-sweepstakes.4/" target="_blank">
-         <img src="cekilis_yorum.jpg" alt="Yorum Etkinliği">
-         <div class="card-text">Tıkla Git →</div>
-      </a>
-
-      <a class="card" href="https://www.apexmyko.net/index.php?threads/forum-cekilisi-l-15x-starter-paket-l-tr-en.4857/page-2#post-22022" target="_blank">
-         <img src="cekilis_forum.jpg" alt="Forum Çekilişi">
-         <div class="card-text">Tıkla Git →</div>
-      </a>
-
-      <a class="card" href="#" target="_blank">
-         <img src="cekilis_4.jpg" alt="Etkinlik">
-         <div class="card-text">Tıkla Git →</div>
-      </a>
-
-      <a class="card" href="#" target="_blank">
-         <img src="cekilis_5.jpg" alt="Etkinlik">
-         <div class="card-text">Tıkla Git →</div>
-      </a>
-
-      <a class="card" href="#" target="_blank">
-         <img src="cekilis_6.jpg" alt="Etkinlik">
-         <div class="card-text">Tıkla Git →</div>
-      </a>
-
-   </div>
-</div>
+```html <!DOCTYPE html> 
+<html lang="tr">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>ApexMyKO Valhalla Opening</title>
+      <style> *{ box-sizing:border-box; margin:0; padding:0; } :root{ --white:#f7fbff; --blue:#9ed0ff; --gold1:#ff9900; --gold2:#ffc400; } html, body{ width:100%; min-height:100%; background:#050b16; color:var(--white); font-family:Arial, Helvetica, sans-serif; overflow-x:hidden; } body{ position:relative; } .video-bg{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; overflow:hidden; background:#050b16; } .video-bg video{ width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.28) saturate(1.02); } .overlay{ position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; pointer-events:none; background: radial-gradient(circle at top center, rgba(31,124,255,.10), transparent 28%), linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.62)); } .container{ position:relative; z-index:2; max-width:1100px; margin:auto; padding:18px 20px 30px; text-align:center; } .logo-wrap{ position:relative; display:inline-block; margin-bottom:10px; } .logo-wrap::before{ content:""; position:absolute; top:50%; left:50%; width:220px; height:220px; transform:translate(-50%,-50%); background:radial-gradient(circle, rgba(255,140,0,.22) 0%, transparent 70%); filter:blur(42px); z-index:1; pointer-events:none; } .logo{ width:150px; position:relative; z-index:2; display:block; filter: drop-shadow(0 0 20px rgba(255,180,0,.28)) drop-shadow(0 0 42px rgba(255,140,0,.18)) drop-shadow(0 10px 25px rgba(0,0,0,.40)); } .hero{ position:relative; background:linear-gradient( 180deg, rgba(12, 28, 48, 0.34) 0%, rgba(8, 20, 36, 0.42) 100% ); padding:18px 18px 20px; border-radius:24px; border:1px solid rgba(255,255,255,0.10); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); box-shadow: 0 20px 40px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.08), 0 0 80px rgba(255,140,0,.08), 0 0 140px rgba(255,140,0,.04); margin-bottom:18px; overflow:hidden; } .hero::before{ content:""; position:absolute; top:-40px; left:-40px; right:-40px; bottom:-40px; background:radial-gradient(circle, rgba(255,140,0,.14) 0%, transparent 68%); z-index:-1; filter:blur(58px); opacity:.55; pointer-events:none; } .badge{ display:block; width:max-content; margin:0 auto 14px auto; background:linear-gradient( 180deg, rgba(22,58,102,0.35) 0%, rgba(10,26,46,0.45) 100% ); padding:7px 20px; border-radius:999px; font-size:12px; letter-spacing:1px; font-weight:700; border:1px solid rgba(170,210,255,0.18); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 12px rgba(47,140,255,0.12); color:#cfe7ff; text-align:center; } .title{ display:block; width:100%; text-align:center; font-size:56px; font-weight:900; margin:0 auto 10px; letter-spacing:1px; line-height:1.05; background:linear-gradient( 90deg, #fff6d5 0%, #ffc400 25%, #ff9800 50%, #ffb300 75%, #fff6d5 100% ); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow: 0 0 20px rgba(255,170,0,0.45), 0 0 40px rgba(255,140,0,0.25), 0 8px 20px rgba(0,0,0,0.4); } .subtitle{ color:var(--blue); margin-bottom:10px; font-size:15px; font-weight:500; text-align:center; } .meta{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:14px; } .meta span{ background:linear-gradient( 180deg, rgba(22, 58, 102, 0.34) 0%, rgba(12, 32, 56, 0.42) 100% ); padding:7px 14px; border-radius:12px; font-size:14px; font-weight:700; border:1px solid rgba(160,210,255,.10); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 0 12px rgba(47,140,255,.06); } .prize{ display:inline-block; position:relative; overflow:hidden; background:linear-gradient(45deg,var(--gold1),var(--gold2)); color:#111; padding:16px 30px; font-weight:900; border-radius:16px; margin-bottom:12px; text-decoration:none; box-shadow:0 0 20px rgba(255,170,0,.35); transition:all .25s ease; } .prize:hover{ transform:translateY(-3px) scale(1.05); box-shadow: 0 0 35px rgba(255,170,0,.90), 0 0 60px rgba(255,140,0,.60); } .prize::after{ content:""; position:absolute; top:0; left:-70%; width:34%; height:100%; background:linear-gradient( 115deg, transparent 0%, rgba(255,255,255,.20) 35%, rgba(255,255,255,.55) 50%, rgba(255,255,255,.20) 65%, transparent 100% ); transform:skewX(-24deg); pointer-events:none; animation:prizeShine 3.8s ease-in-out infinite; } .nav{ display:flex; justify-content:center; gap:10px; margin-bottom:15px; flex-wrap:wrap; } .nav a{ background:linear-gradient(45deg,#ff9900,#ffc400); padding:10px 22px; border-radius:10px; text-decoration:none; color:#111; font-weight:900; box-shadow:0 0 15px rgba(255,170,0,.25); transition:all .25s ease; } .nav a:hover{ transform:translateY(-3px) scale(1.06); box-shadow: 0 0 30px rgba(255,170,0,.80), 0 0 60px rgba(255,140,0,.60); } .countdown{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; align-items:stretch; } .count-box{ background:linear-gradient( 180deg, rgba(18, 42, 72, 0.28) 0%, rgba(10, 24, 44, 0.40) 100% ); padding:16px 10px 14px; border-radius:16px; border:1px solid rgba(160,210,255,.10); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 18px rgba(0,0,0,.14); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease; } .count-number{ font-size:36px; font-weight:900; line-height:1; display:inline-block; transition: transform .22s ease, text-shadow .22s ease, color .22s ease; } .count-label{ font-size:12px; color:var(--blue); letter-spacing:2px; margin-top:8px; font-weight:700; } .count-box.tick{ transform:translateY(-2px) scale(1.03); border-color:rgba(120,180,255,.20); box-shadow: 0 0 22px rgba(47,140,255,.18), 0 0 40px rgba(47,140,255,.10), inset 0 1px 0 rgba(255,255,255,.04); } .count-box.tick .count-number{ transform:scale(1.12); text-shadow: 0 0 12px rgba(164,214,255,.30), 0 0 22px rgba(47,140,255,.16); } .events{ margin-top:8px; } .events h2{ font-size:36px; margin-bottom:12px; text-shadow:0 8px 20px rgba(0,0,0,.22); } .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; } .card{ display:block; background:linear-gradient( 180deg, rgba(16, 36, 64, 0.34) 0%, rgba(10, 22, 40, 0.48) 100% ); border-radius:18px; overflow:hidden; text-decoration:none; color:white; transition:.22s ease; border:1px solid rgba(160,210,255,.10); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); box-shadow: 0 12px 28px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.05); } .card:hover{ transform:translateY(-5px); box-shadow: 0 0 25px rgba(0,150,255,.35), 0 16px 30px rgba(0,0,0,.30); } .card img{ width:100%; display:block; aspect-ratio:4/5.6; object-fit:cover; } .card-text{ padding:12px; font-size:22px; font-weight:900; color:#fff; text-shadow:0 0 8px rgba(255,255,255,.08); transition:.2s ease; text-align:center; } .card:hover .card-text{ color:#ffffff; text-shadow: 0 0 14px rgba(164,214,255,.22), 0 0 24px rgba(47,140,255,.16); } @keyframes prizeShine{ 0%{ left:-70%; opacity:0; } 8%{ opacity:1; } 34%{ left:130%; opacity:1; } 35%,100%{ left:130%; opacity:0; } } @media(max-width:900px){ .cards{ grid-template-columns:1fr 1fr; } } @media(max-width:640px){ .container{ padding:14px 12px 24px; } .logo{ width:135px; } .hero{ padding:16px 12px 16px; } .title{ font-size:38px; } .countdown{ grid-template-columns:1fr 1fr; } .cards{ grid-template-columns:1fr; } .events h2{ font-size:30px; } .card-text{ font-size:20px; } } </style>
+   </head>
+   <body>
+      <div class="video-bg">
+         <video autoplay muted loop playsinline preload="auto">
+            <source src="./bg.mp4" type="video/mp4">
+         </video>
+      </div>
+      <div class="overlay"></div>
+      <div class="container">
+         <div class="logo-wrap"> <img src="apex_logo.png" class="logo" alt="ApexMyKO Logo"> </div>
+         <div class="hero">
+            <div class="badge">Official Opening Countdown</div>
+            <div class="title">VALHALLA OPENING</div>
+            <div class="subtitle">03 Nisan 2026 • 22:00 Türkiye</div>
+            <div class="meta"> <span>64 Bit Client</span> <span>v1098</span> <span>Orj MYKO</span> </div>
+            <a class="prize" href="https://www.apexmyko.net/index.php?forums/odul-havuzu-1-500-000-tl-www-apexmyko-com.30/" target="_blank"> 1.500.000 TL ÖDÜL HAVUZU </a> 
+            <div class="nav"> <a href="https://apexmyko.com" target="_blank">Website</a> <a href="https://apexmyko.net" target="_blank">Forum</a> <a href="https://discord.gg/apexmyko" target="_blank">Discord</a> </div>
+            <div class="countdown">
+               <div class="count-box" id="days-box">
+                  <div id="days" class="count-number">0</div>
+                  <div class="count-label">GÜN</div>
+               </div>
+               <div class="count-box" id="hours-box">
+                  <div id="hours" class="count-number">0</div>
+                  <div class="count-label">SAAT</div>
+               </div>
+               <div class="count-box" id="minutes-box">
+                  <div id="minutes" class="count-number">0</div>
+                  <div class="count-label">DAKİKA</div>
+               </div>
+               <div class="count-box" id="seconds-box">
+                  <div id="seconds" class="count-number">0</div>
+                  <div class="count-label">SANİYE</div>
+               </div>
+            </div>
+         </div>
+         <div class="events">
+            <h2>Aktif Etkinlikler</h2>
+            <div class="cards">
+               <a class="card" href="https://discord.com/channels/971415973297008731/1454618360934563944" target="_blank">
+                  <img src="cekilis_discord.jpg" alt="Discord Etkinliği"> 
+                  <div class="card-text">Tıkla Git →</div>
+               </a>
+               <a class="card" href="https://www.apexmyko.net/index.php?forums/sosyal-medya-etkinlikleri-sweepstakes.4/" target="_blank">
+                  <img src="cekilis_yorum.jpg" alt="Yorum Etkinliği"> 
+                  <div class="card-text">Tıkla Git →</div>
+               </a>
+               <a class="card" href="https://www.apexmyko.net/index.php?threads/forum-cekilisi-l-15x-starter-paket-l-tr-en.4857/page-2#post-22022" target="_blank">
+                  <img src="cekilis_forum.jpg" alt="Forum Çekilişi"> 
+                  <div class="card-text">Tıkla Git →</div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <script> const target = new Date("2026-04-03T22:00:00+03:00").getTime(); const refs = { days: document.getElementById("days"), hours: document.getElementById("hours"), minutes: document.getElementById("minutes"), seconds: document.getElementById("seconds"), daysBox: document.getElementById("days-box"), hoursBox: document.getElementById("hours-box"), minutesBox: document.getElementById("minutes-box"), secondsBox: document.getElementById("seconds-box") }; let previousValues = { days: null, hours: null, minutes: null, seconds: null }; function animateBox(box){ box.classList.remove("tick"); void box.offsetWidth; box.classList.add("tick"); setTimeout(() => { box.classList.remove("tick"); }, 260); } function setValue(key, value, box){ if (previousValues[key] !== value) { refs[key].innerText = value; if (previousValues[key] !== null) { animateBox(box); } previousValues[key] = value; } } function updateCountdown(){ const now = new Date().getTime(); const diff = target - now; if (diff <= 0) { setValue("days", 0, refs.daysBox); setValue("hours", 0, refs.hoursBox); setValue("minutes", 0, refs.minutesBox); setValue("seconds", 0, refs.secondsBox); return; } const d = Math.floor(diff / (1000 * 60 * 60 * 24)); const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); const s = Math.floor((diff % (1000 * 60)) / 1000); setValue("days", d, refs.daysBox); setValue("hours", h, refs.hoursBox); setValue("minutes", m, refs.minutesBox); setValue("seconds", s, refs.secondsBox); } updateCountdown(); setInterval(updateCountdown, 1000); </script> 
+   </body>
+</html>
+```
